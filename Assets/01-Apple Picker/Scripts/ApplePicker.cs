@@ -13,6 +13,9 @@ public class ApplePicker : MonoBehaviour
     public List<GameObject> basketList;
     void Start()
     {
+        CreateBasket();
+    }
+    public void CreateBasket(){
         basketList = new List<GameObject>();
         for(int i=0; i<numBaskets; i++)
         {
@@ -21,6 +24,9 @@ public class ApplePicker : MonoBehaviour
             pos.y = basketBottomY + (basketSpacingY * i);
             tBasketGO.transform.position = pos;
             basketList.Add(tBasketGO);
+        }
+        for(int i=0; i<basketList.Count; i++){
+            basketList[i].transform.parent = GameObject.Find("basket").transform;
         }
     }
 

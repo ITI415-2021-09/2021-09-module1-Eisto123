@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Basket : MonoBehaviour
 {
     [Header("Set Dynamically")]
@@ -20,7 +21,9 @@ public class Basket : MonoBehaviour
         Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
         Vector3 pos = this.transform.position;
         pos.x = mousePos3D.x;
+        pos.y = mousePos3D.y;
         this.transform.position = pos;
+        
     }
 
     private void OnCollisionEnter(Collision coll)
