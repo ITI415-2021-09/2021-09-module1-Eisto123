@@ -21,7 +21,7 @@ public class Prototype : MonoBehaviour
     public int cubeLefted = 4;
     public GameObject puzzle;
     public GameMode mode = GameMode.idle;
-    
+
 
     private void Start()
     {
@@ -29,6 +29,7 @@ public class Prototype : MonoBehaviour
         level = 0;
         levelMax = puzzlesArray.Length;
         StartLevel();
+        
     }
     public void StartLevel()
     {
@@ -83,8 +84,26 @@ public class Prototype : MonoBehaviour
     }
 
 
-        public static void CubeCollected()
+   public static void CubeCollected()
         {
             S.cubeLefted--;
         }
+    public void switchView()
+    {
+        string showing = uitButton.text;
+        switch (showing){
+            case "Switch view":
+                CameraFollow.enableFollow();
+                uitButton.text = "Show Back";
+                break;
+
+            case "Show Back":
+                CameraFollow.disableFollow();
+                uitButton.text = "Switch view";
+                break;
+        }
+        
+    }
+
+
     }
